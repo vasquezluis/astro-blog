@@ -1,0 +1,27 @@
+---
+import Layout from "./Layout.astro";
+
+interface Props {
+  frontmatter: {
+    title: string;
+    author: string;
+    pubDate: Date;
+    description: string;
+    image: {
+      url: string;
+      alt: string;
+    };
+  };
+}
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+  <h1>{frontmatter.title}</h1>
+  <p>Fecha de publicacion: {frontmatter.pubDate.toString().slice(0, 10)}</p>
+  <p><em>{frontmatter.description}</em></p>
+  <p>Escrito por: {frontmatter.author}</p>
+  <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
+
+  <slot />
+</Layout>

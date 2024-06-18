@@ -1,0 +1,45 @@
+---
+const SOCIAL = [
+  {
+    username: "LuisVasquez",
+    platform: "facebook",
+    link: "https://facebook.com/luisvasquez",
+  },
+  {
+    username: "vasquezluis",
+    platform: "github",
+    link: "https://github.com/vasquezluis",
+  },
+];
+---
+
+<footer>
+  <p>Mas informacion de mis proyectos en</p>
+
+  <ul
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      gap: "25px",
+    }}
+  >
+    {
+      SOCIAL.map(({ username, platform, link }) => (
+        <li>
+          <a href={link} target="_blank" rel="noreferrer noopener">
+            {platform} - {username}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</footer>
+
+<style>
+  a {
+    padding: 0.5rem 1rem;
+    color: white;
+    background-color: #4c1d95;
+    text-decoration: none;
+  }
+</style>
